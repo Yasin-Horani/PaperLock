@@ -22,7 +22,7 @@ public class Person {
     @Column(name = "person_id")
     private Long personId;
 
-    @Column(name = "person_name", nullable = false, length = 50)
+    @Column(name = "person_name")
     private String personName;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)

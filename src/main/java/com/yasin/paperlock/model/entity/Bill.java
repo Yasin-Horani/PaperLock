@@ -23,13 +23,13 @@ public class Bill {
     private int billId;
 
 
-    @Column(name = "store_name", length = 150)
+    @Column(name = "store_name")
     private String storeName;
 
-    @Column(name = "product_name", length = 100)
+    @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "product_cost", precision = 10, scale = 2)
+    @Column(name = "product_cost")
     private BigDecimal productCost;
 
     @Column(name = "current_date")
@@ -38,10 +38,10 @@ public class Bill {
     @Column(name = "expired_date")
     private LocalDate expiredDate;
 
-    @Column(name = "bill_status", length = 20)
+    @Column(name = "bill_status")
     private String billStatus;
 
-    @Column(name = "bill_image_url", length = 255)
+    @Column(name = "bill_image_url")
     private String billImageUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
