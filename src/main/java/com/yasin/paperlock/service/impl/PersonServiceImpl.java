@@ -1,5 +1,6 @@
 package com.yasin.paperlock.service.impl;
 
+import com.yasin.paperlock.model.dto.person.PersonDTO;
 import com.yasin.paperlock.model.dto.person.PersonReqDTO;
 import com.yasin.paperlock.model.dto.person.PersonResDTO;
 import com.yasin.paperlock.model.entity.Person;
@@ -9,6 +10,7 @@ import com.yasin.paperlock.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,4 +26,14 @@ public class PersonServiceImpl implements PersonService {
         Person savedPerson = this.personRepo.save(person);
         return personMapper.toPersonResDTO(savedPerson);
     }
+
+
+    @Override
+    public List<PersonDTO> getAllPersons() {
+        return personRepo.findAll()
+                .stream()
+                .map(personMapper::toPersonDTO)
+                .toList();
+    }
+
 }
