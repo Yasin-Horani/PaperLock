@@ -3,6 +3,7 @@ package com.yasin.paperlock.controller;
 import com.yasin.paperlock.model.dto.person.PersonDTO;
 import com.yasin.paperlock.model.dto.person.PersonReqDTO;
 import com.yasin.paperlock.model.dto.person.PersonResDTO;
+import com.yasin.paperlock.model.dto.person.PersonUpdateDTO;
 import com.yasin.paperlock.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,5 +30,11 @@ public class PersonController {
     public List<PersonDTO> getAllPersons() {
         log.info("Get all persons");
         return personService.getAllPersons();
+    }
+    @PutMapping("/person/{personId}")
+    public PersonDTO updatePerson(@PathVariable Long personId,
+                                  @RequestBody PersonUpdateDTO personUpdateDTO) {
+        log.info("Update person with id {}", personId);
+        return personService.updatePerson(personId, personUpdateDTO);
     }
 }

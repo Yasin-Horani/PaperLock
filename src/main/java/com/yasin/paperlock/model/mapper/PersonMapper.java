@@ -10,8 +10,6 @@ public interface PersonMapper {
     Person toPersonEntity(PersonDTO personDTO);
     Person toPersonEntity(PersonReqDTO personReqDTO);
     Person toPersonEntity(PersonResDTO personResDTO);
-    Person toPersonEntity(PersonUpdateDTO personUpdateDTO);
-    Person toPersonEntity(PersonDeleteDTO personDeleteDTO);
 
     PersonDTO toPersonDTO(Person person);
     PersonResDTO toPersonResDTO(Person person);

@@ -3,13 +3,16 @@ package com.yasin.paperlock.service.impl;
 import com.yasin.paperlock.model.dto.person.PersonDTO;
 import com.yasin.paperlock.model.dto.person.PersonReqDTO;
 import com.yasin.paperlock.model.dto.person.PersonResDTO;
+import com.yasin.paperlock.model.dto.person.PersonUpdateDTO;
 import com.yasin.paperlock.model.entity.Person;
 import com.yasin.paperlock.model.mapper.PersonMapper;
 import com.yasin.paperlock.repository.PersonRepo;
 import com.yasin.paperlock.service.PersonService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -27,7 +30,6 @@ public class PersonServiceImpl implements PersonService {
         return personMapper.toPersonResDTO(savedPerson);
     }
 
-
     @Override
     public List<PersonDTO> getAllPersons() {
         return personRepo.findAll()
@@ -36,4 +38,14 @@ public class PersonServiceImpl implements PersonService {
                 .toList();
     }
 
+    @Override
+    public PersonDTO updatePerson(Long personId, PersonUpdateDTO personUpdateDTO) {
+        Person existingPerson = personRepo.findById(personId)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Person not found with id: " + personId));
+        log.info("Updating person {} -> {}", personId, personUpdateDTO.getPersonName());
+        existingPerson.setPersonName(personUpdateDTO.getPersonName());
+        Person updatedPerson = personRepo.save(existingPerson);
+        return personMapper.toPersonDTO(updatedPerson);
+    }
 }

@@ -7,6 +7,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonUpdateDTO {
-    private Long personId;
     private String personName;
 }
