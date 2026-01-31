@@ -21,12 +21,13 @@ public class PersonController {
 
     @PostMapping(value = "/person")
     public PersonResDTO createPerson(@RequestBody PersonReqDTO personReqDTO) {
-        log.info("Create person: {}", personReqDTO);
+        log.info("Create person: {}", personReqDTO.getPersonName());
         return this.personService.addPerson(personReqDTO);
     }
 
     @GetMapping("/person")
     public List<PersonDTO> getAllPersons() {
+        log.info("Get all persons");
         return personService.getAllPersons();
     }
 }
