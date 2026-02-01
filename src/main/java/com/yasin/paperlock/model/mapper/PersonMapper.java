@@ -14,5 +14,4 @@ public interface PersonMapper {
     PersonDTO toPersonDTO(Person person);
     PersonResDTO toPersonResDTO(Person person);
     PersonUpdateDTO toPersonUpdateDTO(Person person);
-    PersonDeleteDTO toPersonDeleteDTO(Person person);
 }

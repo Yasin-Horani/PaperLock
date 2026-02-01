@@ -31,10 +31,16 @@ public class PersonController {
         log.info("Get all persons");
         return personService.getAllPersons();
     }
+
     @PutMapping("/person/{personId}")
     public PersonDTO updatePerson(@PathVariable Long personId,
                                   @RequestBody PersonUpdateDTO personUpdateDTO) {
         log.info("Update person with id {}", personId);
         return personService.updatePerson(personId, personUpdateDTO);
+    }
+
+    @DeleteMapping(path = "/person/{personId}")
+    public void deletePerson(@PathVariable Long personId) {
+        this.personService.deletePerson(personId);
     }
 }

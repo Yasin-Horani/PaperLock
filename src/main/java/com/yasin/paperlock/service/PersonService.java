@@ -1,9 +1,6 @@
 package com.yasin.paperlock.service;
 
-import com.yasin.paperlock.model.dto.person.PersonDTO;
-import com.yasin.paperlock.model.dto.person.PersonReqDTO;
-import com.yasin.paperlock.model.dto.person.PersonResDTO;
-import com.yasin.paperlock.model.dto.person.PersonUpdateDTO;
+import com.yasin.paperlock.model.dto.person.*;
 
 import java.util.List;
 
@@ -15,4 +12,6 @@ public interface PersonService {
     List<PersonDTO> getAllPersons();
 
     PersonDTO updatePerson(Long personId, PersonUpdateDTO personUpdateDTO);
+
+     void deletePerson(Long personId);
 }

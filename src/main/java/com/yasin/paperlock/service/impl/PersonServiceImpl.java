@@ -1,9 +1,6 @@
 package com.yasin.paperlock.service.impl;
 
-import com.yasin.paperlock.model.dto.person.PersonDTO;
-import com.yasin.paperlock.model.dto.person.PersonReqDTO;
-import com.yasin.paperlock.model.dto.person.PersonResDTO;
-import com.yasin.paperlock.model.dto.person.PersonUpdateDTO;
+import com.yasin.paperlock.model.dto.person.*;
 import com.yasin.paperlock.model.entity.Person;
 import com.yasin.paperlock.model.mapper.PersonMapper;
 import com.yasin.paperlock.repository.PersonRepo;
@@ -47,5 +44,15 @@ public class PersonServiceImpl implements PersonService {
         existingPerson.setPersonName(personUpdateDTO.getPersonName());
         Person updatedPerson = personRepo.save(existingPerson);
         return personMapper.toPersonDTO(updatedPerson);
+    }
+
+    @Override
+    public void deletePerson(Long personId) {
+        if (personRepo.existsById(personId)) {
+            personRepo.deleteById(personId);
+            log.info("Deleted person {}", personId);
+        } else {
+            log.info("Person not found with id: {}", personId);
+        }
     }
 }
