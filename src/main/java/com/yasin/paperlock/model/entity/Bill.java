@@ -32,8 +32,8 @@ public class Bill {
     @Column(name = "product_cost")
     private BigDecimal productCost;
 
-    @Column(name = "current_date")
-    private LocalDate currentDate;
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
     @Column(name = "expired_date")
     private LocalDate expiredDate;
