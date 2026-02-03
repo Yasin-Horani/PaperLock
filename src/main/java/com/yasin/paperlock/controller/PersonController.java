@@ -43,4 +43,9 @@ public class PersonController {
     public void deletePerson(@PathVariable Long personId) {
         this.personService.deletePerson(personId);
     }
+
+    @GetMapping(path = "/person/{personId}")
+    public PersonDTO getOnePeson(@PathVariable Long personId) {
+        return this.personService.getOnePerson(personId);
+    }
 }

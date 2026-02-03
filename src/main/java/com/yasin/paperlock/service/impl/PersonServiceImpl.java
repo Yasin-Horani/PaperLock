@@ -55,4 +55,12 @@ public class PersonServiceImpl implements PersonService {
             log.info("Person not found with id: {}", personId);
         }
     }
+
+    @Override
+    public PersonDTO getOnePerson(Long personId) {
+        Person existingPerson = personRepo.findById(personId)
+                .orElseThrow(() -> new EntityNotFoundException("Person not found with id: " + personId));
+        log.info("Fetching person {} -> {}", personId, existingPerson.getPersonName());
+        return personMapper.toPersonDTO(existingPerson);
+    }
 }
