@@ -40,8 +40,8 @@ public class PersonServiceImpl implements PersonService {
         Person existingPerson = personRepo.findById(personId)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Person not found with id: " + personId));
-        log.info("Updating person {} -> {}", personId, personUpdateDTO.getPersonName());
-        existingPerson.setPersonName(personUpdateDTO.getPersonName());
+        log.info("Updating person {} -> {}", personId, personUpdateDTO.personName());
+        existingPerson.setPersonName(personUpdateDTO.personName());
         Person updatedPerson = personRepo.save(existingPerson);
         return personMapper.toPersonDTO(updatedPerson);
     }

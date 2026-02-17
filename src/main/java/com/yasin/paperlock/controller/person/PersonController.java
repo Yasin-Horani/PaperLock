@@ -1,4 +1,4 @@
-package com.yasin.paperlock.controller;
+package com.yasin.paperlock.controller.person;
 
 import com.yasin.paperlock.model.dto.person.PersonDTO;
 import com.yasin.paperlock.model.dto.person.PersonReqDTO;
@@ -22,7 +22,7 @@ public class PersonController {
 
     @PostMapping(value = "/person")
     public PersonResDTO createPerson(@RequestBody PersonReqDTO personReqDTO) {
-        log.info("Create person: {}", personReqDTO.getPersonName());
+        log.info("Create person: {}", personReqDTO.personName());
         return this.personService.addPerson(personReqDTO);
     }
 
