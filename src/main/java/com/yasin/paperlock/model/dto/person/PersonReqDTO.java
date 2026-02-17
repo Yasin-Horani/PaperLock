@@ -1,11 +1,6 @@
 package com.yasin.paperlock.model.dto.person;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class PersonReqDTO {
-    private String personName;
+@Builder
+public record PersonReqDTO(String personName) {
 }
