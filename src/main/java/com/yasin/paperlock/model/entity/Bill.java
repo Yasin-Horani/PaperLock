@@ -22,7 +22,6 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int billId;
 
-
     @Column(name = "store_name")
     private String storeName;
 
