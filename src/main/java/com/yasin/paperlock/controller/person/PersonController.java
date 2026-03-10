@@ -20,6 +20,7 @@ public class PersonController {
 
     private final PersonService personService;
 
+    // add person
     @PostMapping(value = "/person")
     public PersonResDTO createPerson(@RequestBody PersonReqDTO personReqDTO) {
         log.info("Create person: {}", personReqDTO.personName());
