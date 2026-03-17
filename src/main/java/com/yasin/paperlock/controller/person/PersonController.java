@@ -27,6 +27,7 @@ public class PersonController {
         return this.personService.addPerson(personReqDTO);
     }
 
+    // get person
     @GetMapping("/person")
     public List<PersonDTO> getAllPersons() {
         log.info("Get all persons");
