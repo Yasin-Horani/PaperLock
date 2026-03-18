@@ -34,6 +34,7 @@ public class PersonController {
         return personService.getAllPersons();
     }
 
+    // update person
     @PutMapping("/person/{personId}")
     public PersonDTO updatePerson(@PathVariable Long personId,
                                   @RequestBody PersonUpdateDTO personUpdateDTO) {
